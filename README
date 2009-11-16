@@ -1,0 +1,33 @@
+TC Code Interview
+------------------------------
+
+Problem: Write a computer program in any language that takes in an xml file describing a list of movies and stores it in a data warehouse. Once the data is loaded, make an interface that returns the number of degrees of separation between two actors. Feel free to specify the xml format yourself or you can just use the one I’ve given in the example below. Bonus points for solving this problem with a web interface, double bonus points if that interface is built on top of Rails. Remember to comment your code and use consistent naming conventions, and make sure to include a readme file so that I know how to use your program.
+
+Instructions
+------------------------------
+Note: This assumes you are using the development environment
+
+Setup: Setup the database if necessary (i.e. you have deleted the uploaded databases for some reason)
+In your terminal, type
+1.) rake db:create
+2.) rake db:migrate
+
+Optionally, to see the unit tests:
+3.) RAILS_ENV=test rake db:create
+4.) RAILS_ENV=test rake db:migrate
+5.) cd test
+6.) ruby unit/actor_test.rb
+
+All tests should pass.
+
+Great, now we're ready to do some useful stuff.
+
+Usage:
+1.) Browse to http://localhost:3000
+2.) Upload lib/example.xml (or any other well-formatted movies/actors xml file)
+3.) Select the two actors you would like to see the separations for
+4.) To clear the entries in the database, browse to http://localhost:3000 and click "Destroy all entries"
+
+TC Code Interview
+------------------------------
+Any questions or concerns, please contact me at sean [] chuwe [] com

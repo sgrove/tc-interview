@@ -1,0 +1,15 @@
+movie_1:
+  title: Movie 1
+  actors: actor_1, actor_2
+
+movie_2:
+  title: Move 2
+  actors: actor_2, actor_3
+
+movie_3:
+  title: Move 3
+  actors: actor_3, actor_4
+
+movie_4:
+  title: Move 4
+  actors: actor_5

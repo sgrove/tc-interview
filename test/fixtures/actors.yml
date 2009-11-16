@@ -1,0 +1,20 @@
+actor_1:
+  name: Actor 1
+  movies: movie_1
+
+actor_2:
+  name: Actor 2
+  movies: movie_1, movie_2
+
+actor_3:
+  name: Actor 3
+  movies: movie_2, movie_3
+
+actor_4:
+  name: Actor 4
+  movies: movie_3
+
+actor_5:
+  name: Actor 5
+  movies: movie_4
+

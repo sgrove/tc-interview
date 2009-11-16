@@ -1,0 +1,11 @@
+%h1 Path selection
+- form_tag analysis_path do
+  = flash[:message]
+  = label_tag :actor_1_title, "Actor 1:"
+  = select_tag :actor_1_title, @actors
+  = label_tag :actor_2_title, "Actor 2:"
+  = select_tag :actor_2_title, @actors
+  = submit_tag "Show"
+
+%ul
+  %li= link_to "Destroy all entries", destroy_analysis_path

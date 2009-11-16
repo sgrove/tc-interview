@@ -1,0 +1,189 @@
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMovies (20091116052352)
+  [4;36;1mSQL (1.1ms)[0m   [0;1mCREATE TABLE "movies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091116052352')[0m
+Migrating to CreateActors (20091116052418)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "actors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091116052418')[0m
+Migrating to ActorsMoviesJoin (20091116064904)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "actors_movies" ("actor_id" integer, "movie_id" integer) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20091116064904')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("actors")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("actors_movies")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("movies")[0m
+  [4;36;1mActor Load (0.9ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 2') LIMIT 1[0m
+  [4;36;1mMovie Load (1.1ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.5ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mActor Load (0.9ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 2') LIMIT 1[0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mActor Load (0.8ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 3') LIMIT 1[0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mMovie Load (1.4ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;36;1mActor Load (0.9ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 2') LIMIT 1[0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mActor Load (0.8ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 3') LIMIT 1[0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mMovie Load (1.4ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;35;1mActor Load (0.9ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;36;1mActor Load (0.8ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 4') LIMIT 1[0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;35;1mMovie Load (1.2ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mMovie Load (1.4ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;36;1mMovie Load (1.4ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mMovie Load (1.4ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 73193523 ) [0m
+  [4;36;1mActor Load (1.6ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 1929169780 ) [0m
+  [4;36;1mActor Load (0.9ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 2') LIMIT 1[0m
+  [4;36;1mMovie Load (1.1ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mActor Load (0.8ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 3') LIMIT 1[0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mMovie Load (1.4ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;36;1mActor Load (0.7ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 4') LIMIT 1[0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mMovie Load (1.4ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;36;1mMovie Load (1.4ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mMovie Load (1.5ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 73193523 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 1929169780 ) [0m
+  [4;36;1mActor Load (0.9ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 2') LIMIT 1[0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mActor Load (0.8ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.7ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 3') LIMIT 1[0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.5ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mMovie Load (1.4ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;35;1mActor Load (0.9ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;36;1mActor Load (0.8ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 4') LIMIT 1[0m
+  [4;35;1mMovie Load (1.1ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mMovie Load (1.5ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;36;1mMovie Load (1.5ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mMovie Load (1.4ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 73193523 ) [0m
+  [4;36;1mActor Load (1.5ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 1929169780 ) [0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;36;1mActor Load (0.8ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 5') LIMIT 1[0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mMovie Load (1.4ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;36;1mMovie Load (1.5ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mMovie Load (1.5ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 73193523 ) [0m
+  [4;36;1mActor Load (1.5ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 1929169780 ) [0m
+  [4;35;1mMovie Load (1.4ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 73193523 ) [0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 439897489 ) [0m
+  [4;36;1mActor Load (0.9ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 2') LIMIT 1[0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mActor Load (0.8ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 3') LIMIT 1[0m
+  [4;36;1mMovie Load (1.2ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.7ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mMovie Load (1.1ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mMovie Load (1.5ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;36;1mActor Load (0.7ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 4') LIMIT 1[0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mActor Load (1.5ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mMovie Load (1.4ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;36;1mMovie Load (1.4ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mMovie Load (1.4ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 73193523 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 1929169780 ) [0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;36;1mActor Load (0.7ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 5') LIMIT 1[0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mMovie Load (1.4ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;36;1mMovie Load (1.4ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mMovie Load (1.4ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 73193523 ) [0m
+  [4;36;1mActor Load (1.5ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 1929169780 ) [0m
+  [4;35;1mMovie Load (1.4ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 73193523 ) [0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 439897489 ) [0m
+  [4;36;1mActor Load (0.9ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 2') LIMIT 1[0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mActor Load (0.9ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 3') LIMIT 1[0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;35;1mMovie Load (1.4ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;36;1mActor Load (1.5ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;35;1mActor Load (0.9ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;36;1mActor Load (0.8ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 4') LIMIT 1[0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mMovie Load (1.5ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;36;1mMovie Load (1.5ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mMovie Load (1.4ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 73193523 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 1929169780 ) [0m
+  [4;35;1mActor Load (0.8ms)[0m   [0mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 1') LIMIT 1[0m
+  [4;36;1mActor Load (0.7ms)[0m   [0;1mSELECT * FROM "actors" WHERE ("actors"."name" = 'Actor 5') LIMIT 1[0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mActor Load (1.4ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 485665369 ) [0m
+  [4;35;1mMovie Load (1.0ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1783806238 ) [0m
+  [4;36;1mMovie Load (1.5ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mActor Load (1.4ms)[0m   [0mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 100400098 ) [0m
+  [4;36;1mMovie Load (1.5ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 1935403173 ) [0m
+  [4;35;1mMovie Load (1.5ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 73193523 ) [0m
+  [4;36;1mActor Load (1.5ms)[0m   [0;1mSELECT * FROM "actors" INNER JOIN "actors_movies" ON "actors".id = "actors_movies".actor_id WHERE ("actors_movies".movie_id = 1929169780 ) [0m
+  [4;35;1mMovie Load (1.5ms)[0m   [0mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 73193523 ) [0m
+  [4;36;1mMovie Load (1.0ms)[0m   [0;1mSELECT * FROM "movies" INNER JOIN "actors_movies" ON "movies".id = "actors_movies".movie_id WHERE ("actors_movies".actor_id = 439897489 ) [0m
