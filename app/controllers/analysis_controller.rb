@@ -20,7 +20,7 @@ class AnalysisController < ApplicationController
   end
 
   def upload
-    results = Movie.parse_xml params[:upload][:data_file]
+    results = Movie.parse_xml params[:upload][:data_file] # TODO: Add error checking on xml presence/validity
     flash[:message] = "Parsed file to database"
     redirect_to :action => 'index'
   end

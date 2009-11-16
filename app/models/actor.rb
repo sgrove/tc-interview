@@ -14,27 +14,28 @@ class Actor < ActiveRecord::Base
   7.) Go to step 2
 =end  
   def steps_to actor_2
-    @movies_to_check = []
-    @movies_checked = []
-    @actors = []
-
+    movies_to_check = []
+    movies_checked  = []
+ 
     level = 0
 
     # Check Level 0
-    @movies_to_check = movies
+    movies_to_check = movies
 
-    until @movies_to_check.empty?
+    until movies_to_check.empty?
       # Get all actors from an array of movies
-      @actors = @movies_to_check.collect{ |m| m.actors }.flatten.uniq
-      return level if @actors.include? actor_2
+      actors = movies_to_check.collect{ |m| m.actors }.flatten.uniq
+      return level if actors.include? actor_2
 
       # No hits at this level, mark these movies as checked
-      @movies_checked  = @movies_checked.concat( @movies_to_check ).uniq
-      @movies_to_check = @actors.collect{ |a| a.movies }.flatten.uniq.reject { |m| @movies_checked.include? m }
+      movies_checked  = movies_checked | movies_to_check # Set union between two arrays, combine and make unique
+      movies_to_check = actors.collect{ |a| a.movies }.flatten.uniq.reject { |m| movies_checked.include? m }
+
+      # Going one level deeper, so increase level counter
       level += 1
     end
 
-    return false
+    return false # Could easily be nil, but false looks better on the frontend
   end
 
   def to_s
