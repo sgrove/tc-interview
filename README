@@ -23,10 +23,11 @@ All tests should pass.
 Great, now we're ready to do some useful stuff.
 
 Usage:
-1.) Browse to http://localhost:3000
-2.) Upload lib/example.xml (or any other well-formatted movies/actors xml file)
-3.) Select the two actors you would like to see the separations for
-4.) To clear the entries in the database, browse to http://localhost:3000 and click "Destroy all entries"
+1.) Start the rails server: script/server
+2.) Browse to http://localhost:3000
+3.) Upload lib/example.xml (or any other well-formatted movies/actors xml file)
+4.) Select the two actors you would like to see the separations for
+5.) To clear the entries in the database, browse to http://localhost:3000 and click "Destroy all entries"
 
 TC Code Interview
 ------------------------------
